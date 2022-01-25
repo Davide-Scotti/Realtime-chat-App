@@ -23,12 +23,12 @@ if(isset($_POST['encrypt'])){
 
     $ciphering = "AES-128-CTR"; // it store the cipher method
     $option = 0; // it holds the bitwise disjunction of the flags
-    $encrytion_iv = '1234567890123456'; //it hold the initialization vector witch is not null
-    $encrytion_key = "Scotti-Davide";
+    $encrytion_iv = '1234567890123456'; //it hold the initialization vector witch is not null 
+    $encrytion_key = "Davide-Scotti";
     $encrytion = openssl_encrypt($simple_string,$ciphering,$encrytion_key,$option,$encrytion_iv);
 
     echo ' <label for="message">Encrypted Data:</label>';
-    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message">'.  $encrytion . '</textarea></div>';
+    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message" readonly>'.  $encrytion . '</textarea></div>';
     echo ' <button type="submit" name="goback" class="btn btn-primary">Go Back</button>
            <button type="submit" name="decrypt" class="btn btn-primary">Decrypt</button>
            <button type="submit" name="intercept" class="btn btn-primary">Intercept</button>';
@@ -40,13 +40,12 @@ if(isset($_POST['decrypt'])){
     $ciphering = "AES-128-CTR"; // it store the cipher method
     $option = 0; // it holds the bitwise disjunction of the flags
     $decrytion_iv = '1234567890123456'; //it hold the initialization vector witch is not null
-    $decrytion_key = "Scotti-Davide";
-    
+    $decrytion_key = "Davide-Scotti";
 
     $decrytion = openssl_decrypt($text,$ciphering,$decrytion_key,$option,$decrytion_iv);
 
     echo ' <label for="message">Decrypted Data:</label>';
-    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message">' .  $decrytion . '</textarea></div>';
+    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message" readonly>' .  $decrytion . '</textarea></div>';
     echo ' <button type="submit" name="goback" class="btn btn-primary">Go Back</button>
            <button type="submit" name="decrypt" class="btn btn-primary">Decrypt</button>
            <button type="submit" name="intercept" class="btn btn-primary">Intercept</button>';
@@ -58,14 +57,14 @@ if(isset($_POST['intercept'])){
     $text = $_POST['text'];
 
     echo ' <label for="message">Intercepted Data:</label>';
-    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message">' .  $text . '</textarea></div>';
+    echo ' <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message" readonly>' .  $text . '</textarea></div>';
     echo ' <button type="submit" name="goback" class="btn btn-primary">Go Back</button>
            <button type="submit" name="decrypt" class="btn btn-primary">Decrypt</button>
            <button type="submit" name="intercept" class="btn btn-primary">Intercept</button>';
 }
 
 if(isset($_POST['goback'])){
-    header("Location: http://localhost/encrypted/");
+    header("Location: http://localhost/Realtime-chat-App/encrypted/");
 }
 
 echo '                  </form>
@@ -74,4 +73,31 @@ echo '                  </form>
             </div>
         </body>';
 
+
+
+
+
+
+
+
+
+
+/*function generateRandomString($length = 16) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}*/
 ?>
+
+
+
+
+
+
+
+
+

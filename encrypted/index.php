@@ -19,8 +19,6 @@
                         <textarea name="text" class="form-control" id="msg" rows="3" placeholder="Enter Message"></textarea>
                     </div>
                     <button type="submit" name="encrypt" class="btn btn-primary">Encrypt</button>
-                    <button type="submit" name="decrypt" class="btn btn-primary">Decrypt</button>
-                    <button type="submit" name="intercept" class="btn btn-primary">Intercept</button>
                 </form>
             </div>
         </div>
