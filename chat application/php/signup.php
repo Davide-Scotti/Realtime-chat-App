@@ -1,32 +1,11 @@
 <?php
     session_start();
     include_once "config.php";
+    include_once "function.php";
     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-    function encrypt($string) {
-
-        $ciphering = "AES-128-CTR"; // it store the cipher method
-        $option = 0; // it holds the bitwise disjunction of the flags
-        $encrytion_iv = '1234567890123456'; //it hold the initialization vector witch is not null
-        $encrytion_key = "Scotti-Davide";
-        $encrytion = openssl_encrypt($string,$ciphering,$encrytion_key,$option,$encrytion_iv);
-        
-        return $encrytion;
-    }
-
-    function decrypt($string){
-
-        $ciphering = "AES-128-CTR"; // it store the cipher method
-        $option = 0; // it holds the bitwise disjunction of the flags
-        $decrytion_iv = '1234567890123456'; //it hold the initialization vector witch is not null
-        $decrytion_key = "Scotti-Davide";
-        $decrytion = openssl_decrypt($string,$ciphering,$decrytion_key,$option,$decrytion_iv);
-
-        return $decrytion;
-    }
 
     if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
         //check if user email is valid
@@ -58,7 +37,7 @@
                             $status = "Active now"; //once user signed up his status will be active now
                             $random_id = rand(time(), 10000000); //creating random id for user
 
-                            $psw = encrypt($password);
+                            $psw = encrypt($password);  echo $psw;
                         
                             //insert all user data inside table
                             $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, psw, img, status)
