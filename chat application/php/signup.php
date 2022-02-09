@@ -40,21 +40,25 @@
                             $psw = encrypt($password);  echo $psw;
                         
                             //insert all user data inside the db
+
                             $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
                                                 VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$password}', '{$new_img_name}', '{$status}')");
 
-                            if($sql2){ //if this data inseted
+                            try{
+
                                 $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
+
                                 if(mysqli_num_rows($sql3) > 0 ){
                                     $row = mysqli_fetch_assoc($sql3);
                                     $_SESSION['unique_id'] = $row['unique_id'] ; //using this session we used user unique_id in other php file
                                     echo "success";
                                 }
-                            }else{
-                                echo "Error to insert on DB!";
+
+                            }catch (Exception $e){
+                                echo "Error to insert on DB! " . $e;
                             }
                         }
-                        
+
                     }else{
                         echo "Please select an Image file - jpeg, jpg, png!";
                     }
@@ -69,5 +73,17 @@
     }else{
         echo "All input are required!";
     }
-
+                            /*if($sql2){ //if this data inseted
+                                $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
+                                if(mysqli_num_rows($sql3) > 0 ){
+                                    $row = mysqli_fetch_assoc($sql3);
+                                    $_SESSION['unique_id'] = $row['unique_id'] ; //using this session we used user unique_id in other php file
+                                    echo "success";
+                                }
+                            }else{
+                                echo "Error to insert on DB!";
+                            }*/
 ?>
+
+
+                           
