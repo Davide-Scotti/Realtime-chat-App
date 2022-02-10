@@ -5,7 +5,7 @@
                             <img src="php/images/' . $row['img'] . '" alt="">
                             <div class="details">
                                 <span>'. $row['fname'] . " " . $row['lname'] .'</span>
-                                <p>Davide sei il migliore</p>
+                                <p>Click to start a chat</p>
                             </div>
                         </div>
                         <div class="status-dot"><i class="fas fa-circle"></i></div>

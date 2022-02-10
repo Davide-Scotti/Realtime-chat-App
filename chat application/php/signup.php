@@ -37,25 +37,30 @@
                             $status = "Active now"; //once user signed up his status will be active now
                             $random_id = rand(time(), 10000000); //creating random id for user
 
-                            $psw = encrypt($password);  echo $psw;
+                            $psw = encrypt($password);
                         
                             //insert all user data inside the db
 
                             $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
-                                                VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$password}', '{$new_img_name}', '{$status}')");
+                                                VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$psw}', '{$new_img_name}', '{$status}')");
 
-                            try{
+                                //echo "New users has id: " . mysqli_insert_id($conn) . " ";
 
-                                $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
+                            if($sql2){ //if this data inseted
+
+                                $sql3 = "SELECT * FROM users WHERE email = ?"; // SQL with parameters
+                                $stmt = $conn->prepare($sql3); 
+                                $stmt->bind_param("s", $email);
+                                $stmt->execute();
+                                $sql3 = $stmt->get_result(); // get the mysqli result
 
                                 if(mysqli_num_rows($sql3) > 0 ){
                                     $row = mysqli_fetch_assoc($sql3);
                                     $_SESSION['unique_id'] = $row['unique_id'] ; //using this session we used user unique_id in other php file
                                     echo "success";
                                 }
-
-                            }catch (Exception $e){
-                                echo "Error to insert on DB! " . $e;
+                            }else{
+                                echo "Error to insert on DB!";
                             }
                         }
 
@@ -73,16 +78,6 @@
     }else{
         echo "All input are required!";
     }
-                            /*if($sql2){ //if this data inseted
-                                $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
-                                if(mysqli_num_rows($sql3) > 0 ){
-                                    $row = mysqli_fetch_assoc($sql3);
-                                    $_SESSION['unique_id'] = $row['unique_id'] ; //using this session we used user unique_id in other php file
-                                    echo "success";
-                                }
-                            }else{
-                                echo "Error to insert on DB!";
-                            }*/
 ?>
 
 

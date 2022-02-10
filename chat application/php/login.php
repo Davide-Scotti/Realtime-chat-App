@@ -9,7 +9,14 @@
     if(!empty($email) && !empty($password)){
         //check if exist an user with that email and password
 
-        $sql = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' AND password = '{$password}'");
+        $psw = encrypt($password);
+
+        $sql = "SELECT * FROM users WHERE email = ? AND password = ?"; // SQL with parameters
+        $stmt = $conn->prepare($sql); 
+        $stmt->bind_param("ss", $email, $psw);
+        $stmt->execute();
+        $sql = $stmt->get_result(); // get the mysqli result
+
         if(mysqli_num_rows($sql) > 0){ //if user credential metch
             $row = mysqli_fetch_assoc($sql);
             $_SESSION['unique_id'] = $row['unique_id'] ; //using this session we used user unique_id in other php file

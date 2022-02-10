@@ -1,10 +1,11 @@
 const input = document.querySelector(".users .search input"),
 searchBtn = document.querySelector(".users .search button"),
+searchBar = document.querySelector(".users .search input"),
 usersList = document.querySelector(".users .users-list");
 
 searchBtn.onclick = ()=>{
-    searchBar.classList.toggle("active");
-    searchBar.focus();
+    searchBtn.classList.toggle("active");
+    searchBtn.focus();
     searchBtn.classList.toggle("active");
 }
 
