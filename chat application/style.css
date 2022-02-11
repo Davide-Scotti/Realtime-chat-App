@@ -108,6 +108,7 @@ form .name-details .field:last-child {
 }
 
 /* USERS Area CSS Code*/
+
 .users {
 	padding: 25px 30px;
 }
@@ -185,11 +186,11 @@ form .name-details .field:last-child {
 	border-radius: 0 5px 0 5px;
 	transition: all 0.2s ease;
 }
-.users .search button.active {
+.users .search button .active {
 	color: #fff;
 	background: #333;
 }
-.users .search button.active i::before {
+.users .search button .active i::before {
 	content: "\f00d";
 }
 .users-list {

@@ -4,9 +4,10 @@ searchBar = document.querySelector(".users .search input"),
 usersList = document.querySelector(".users .users-list");
 
 searchBtn.onclick = ()=>{
+    console.log("CLICK")
     searchBtn.classList.toggle("active");
-    searchBtn.focus();
-    searchBtn.classList.toggle("active");
+    //searchBtn.focus();
+    //searchBtn.classList.toggle("active");
 }
 
 searchBar.onkeyup = () => {
