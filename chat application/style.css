@@ -161,11 +161,11 @@ form .name-details .field:last-child {
 	position: absolute;
 	height: 42px;
 	width: calc(100% - 50px);
-	border: 1px solid #ccc;
-	padding: 0 13px;
 	font-size: 16px;
-	border-radius: 5px;
+	padding: 0 13px;
+	border: 1px solid #e6e6e6;
 	outline: none;
+	border-radius: 5px 0 0 5px;
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.2s ease;
@@ -175,22 +175,24 @@ form .name-details .field:last-child {
 	pointer-events: auto;
 }
 .users .search button {
+	position: relative;
+	z-index: 1;
 	width: 47px;
 	height: 42px;
-	border: none;
-	outline: none;
-	color: #333;
-	background: #fff;
-	cursor: pointer;
 	font-size: 17px;
-	border-radius: 0 5px 0 5px;
+	cursor: pointer;
+	border: none;
+	background: #fff;
+	color: #333;
+	outline: none;
+	border-radius: 0 5px 5px 0;
 	transition: all 0.2s ease;
 }
-.users .search button .active {
-	color: #fff;
+.users .search button.active {
 	background: #333;
+	color: #fff;
 }
-.users .search button .active i::before {
+.users .search button.active i::before {
 	content: "\f00d";
 }
 .users-list {

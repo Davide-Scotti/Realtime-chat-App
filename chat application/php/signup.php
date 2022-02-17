@@ -44,8 +44,6 @@
                             $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname, lname, email, password, img, status)
                                                 VALUES ({$random_id}, '{$fname}', '{$lname}', '{$email}', '{$psw}', '{$new_img_name}', '{$status}')");
 
-                                //echo "New users has id: " . mysqli_insert_id($conn) . " ";
-
                             if($sql2){ //if this data inseted
 
                                 $sql3 = "SELECT * FROM users WHERE email = ?"; // SQL with parameters

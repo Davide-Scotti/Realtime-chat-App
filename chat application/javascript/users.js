@@ -1,41 +1,39 @@
-const input = document.querySelector(".users .search input"),
+const searchBar = document.querySelector(".users .search input"),
 searchBtn = document.querySelector(".users .search button"),
-searchBar = document.querySelector(".users .search input"),
 usersList = document.querySelector(".users .users-list");
 
 searchBtn.onclick = ()=>{
-    console.log("CLICK")
+    searchBar.classList.toggle("active");
+    searchBar.focus();
     searchBtn.classList.toggle("active");
-    //searchBtn.focus();
-    //searchBtn.classList.toggle("active");
-}
-
-searchBar.onkeyup = () => {
+    searchBar.value = "";
+  }
+  
+  searchBar.onkeyup = ()=>{
     let searchTerm = searchBar.value;
     if(searchTerm != ""){
-        searchBar.classList.add("active");
+      searchBar.classList.add("active");
     }else{
-        searchBar.classList.remove("active");
+      searchBar.classList.remove("active");
     }
-    //starting Ajax
-    let xhr = new XMLHttpRequest(); //creating XML object
-    //starting Ajax
+    let xhr = new XMLHttpRequest();
     xhr.open("POST", "php/search.php", true);
     xhr.onload = ()=>{
-        if(xhr.readyState === XMLHttpRequest.DONE){
-            if(xhr.status === 200){
-                let data = xhr.response;
-                usersList.innerHTML = data;
-            }
-        }
+      if(xhr.readyState === XMLHttpRequest.DONE){
+          if(xhr.status === 200){
+            let data = xhr.response;
+            usersList.innerHTML = data;
+          }
+      }
     }
-    xhr.setRequestHeader("Content-type", "application/x-www-from-urlencoded");
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("searchTerm=" + searchTerm);
-}
+  }
+  
 
-setInterval(()=>{
+setInterval(()=>{ //continue to reload page every 0.5 s
+    //let's start ajax
     let xhr = new XMLHttpRequest(); //creating XML object
-    //starting Ajax
     xhr.open("GET", "php/users.php", true);
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
