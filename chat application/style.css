@@ -11,13 +11,14 @@ body {
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
-	background: #333;
+	background: lightpink;
 }
 .wrapper {
 	background: #fff;
 	width: 450px;
 	border-radius: 16px;
-	box-shadow: 0 0 128px 0 rgba(51, 51, 51, 0.1), 0 32px 64px -48px rgba(255, 255, 255, 0.5);
+	box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+	0 32px 64px -48px rgba(0,0,0,0.5);
 }
 
 /* Signup Form CSS - Code */
