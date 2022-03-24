@@ -11,7 +11,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	min-height: 100vh;
-	background: lightpink;
+	background: #eee;
 }
 .wrapper {
 	background: #fff;
@@ -37,12 +37,12 @@ body {
 }
 .form form .error-txt {
 	color: #721c24;
-	background: #f8d7da;
+	background: #fff;
 	padding: 8px 10px;
 	text-align: center;
 	border-radius: 5px;
 	margin-bottom: 10px;
-	border: 1px solid #f5c6cb;
+	border: 1px solid #fff;
 	display: none;
 }
 .form form .name-details {
@@ -315,4 +315,61 @@ form .name-details .field:last-child {
 	font-size: 19px;
 	cursor: pointer;
 	border-radius: 0 5px 5px 0;
+}
+/*      TABLET CSS       */
+@media (max-width: 998px) {
+	.wrapper {
+		background: #fff;
+		width: 100vh;
+		height: 100vh;
+		border-radius: 16px;
+		box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+		0 32px 64px -48px rgba(0,0,0,0.5);
+	}
+	.chat-box {
+		min-height: 85vh;
+		overflow-y: auto;
+		background: #f7f7f7;
+		padding: 10px 30px 20px 30px;
+		box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 /5%);
+	}
+	@media (max-height: 1050px) {
+		.chat-box {
+			min-height: 83vh;
+		}
+	}
+}
+
+/*      MOBILEPHONE CSS       */
+@media (max-width: 767px) {
+	.wrapper {
+		background: #fff;
+		width: 100vh;
+		border-radius: 16px;
+		box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+		0 32px 64px -48px rgba(0,0,0,0.5);
+	}
+	.chat-box {
+		min-height: 80vh;
+		overflow-y: auto;
+		background: #f7f7f7;
+		padding: 10px 30px 20px 30px;
+		box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 /5%);
+	}
+	/* MOBILEPHONE HEIGHT 667px*/
+	@media (max-height: 667px) {
+		.chat-box {
+			min-height: 75%;
+		}
+	}
+	@media (max-height: 667px) {
+		.chat-box {
+			min-height: 75%;
+		}
+	}
+	@media (max-height: 740px) {
+		.chat-box {
+			min-height: 76vh;
+		}
+	}
 }
