@@ -24,6 +24,7 @@ sendBtn.onclick = ()=>{
 
 chatBox.onmouseenter = () =>{
   chatBox.classList.add("active");
+  console.log("attiva on mouse enter")
 }
 
 chatBox.onmouseleave = () =>{
@@ -38,8 +39,10 @@ setInterval(() =>{
           if(xhr.status === 200){
             let data = xhr.response;
             chatBox.innerHTML = data;
-            console.log(data);
-            scrollToBottom();
+            if(!chatBox.classList.contains("active")){
+              console.log("entro nell'if")
+              scrollToBottom();
+            }
           }
       }
     }
