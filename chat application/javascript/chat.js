@@ -38,8 +38,9 @@ setInterval(() =>{
           if(xhr.status === 200){
             let data = xhr.response;
             chatBox.innerHTML = data;
-            console.log(data);
-            scrollToBottom();
+            if(!chatBox.classList.contains("active")){
+              scrollToBottom();
+            }
           }
       }
     }
