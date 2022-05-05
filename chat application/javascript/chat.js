@@ -24,7 +24,6 @@ sendBtn.onclick = ()=>{
 
 chatBox.onmouseenter = () =>{
   chatBox.classList.add("active");
-  console.log("attiva on mouse enter")
 }
 
 chatBox.onmouseleave = () =>{
